@@ -1,0 +1,51 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+
+// レッスン一覧
+Route::get('lessons', 'LessonController@index')->name('index');
+// レッスン詳細
+Route::get('lessons/show/{id}', 'LessonController@show')->name('show');
+//
+// レッスン新規作成
+Route::get('lessons/create', 'LessonController@create')->name('create');
+// レッスン登録確認画面
+Route::post('lessons/confirm', 'LessonController@confirm')->name('confirm');
+// レッスン登録
+Route::post('lessons/store', 'LessonController@store')->name('store');
+//
+// レッスンの修正(personal.blade.phpから編集ボタンから表示されるedit.blade.php)
+Route::get('lessons/edit', 'LessonController@edit')->name('edit');
+// レッスン更新
+Route::post('lessons/update', 'LessonController@update')->name('update');
+//
+Route::get('instructors/mylesson', 'InstructorController@mylesson')->name('mylesson');
+
+
+
+Route::get('instructors', 'InstructorController@index')->name('instructors');
+// 講師一覧
+Route::get('instructors/show/{id}', 'InstructorController@show')->name('introduce');
+// 講師詳細
+
+
+
+// 講師ログイン後の遷移先
+Route::get('instructors/auth', 'InstructorController@getAuth')->name('auth');
+Route::post('instructors/auth', 'InstructorController@postAuth')->name('personal');
