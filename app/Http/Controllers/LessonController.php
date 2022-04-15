@@ -59,6 +59,7 @@ class LessonController extends Controller
     public function create()
     {
         $parentCategory = new Parent_category;
+        // セレクトの最初に「'選択'」を表示する
         $category_list = $parentCategory->getLists()->prepend('選択', '');
         return view('lessons.create', compact('category_list'));
     }
