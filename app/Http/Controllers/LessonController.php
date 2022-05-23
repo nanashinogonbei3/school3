@@ -302,7 +302,6 @@ class LessonController extends Controller
         $param = ['input' => $request->query('input'), 'item' => $item, 'category_list' => $category_list];
 
 
-
         return view('lessons.find', $param);
     }
 

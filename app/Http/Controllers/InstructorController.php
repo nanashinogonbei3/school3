@@ -317,6 +317,10 @@ class InstructorController extends Controller
         ]);
     }
 
+    
+
+
+
     // パスワードにHash(暗号化)するために全カラム
     protected function pwhash(Request $request, Instructor $instructor)
     {
