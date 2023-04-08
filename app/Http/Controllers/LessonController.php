@@ -267,10 +267,13 @@ class LessonController extends Controller
 
         // 保存形式がfileで、他と違う画像だけをrequestから取り除く。
         $input = $request->except(['img']);
+    // dd($input);
         // 画像は storage/images/に一旦保存する処理
         $imagefile = $request->file('img');
+    // dd($imagefile);
         // 画像の保管先を/public/images
         $temp_path = $imagefile->store('public/images');
+  
         // $requestされた$input配列に、$temp_pathを、
         // $input['imgカラム']に代入する。
         $input['img'] = $temp_path;

@@ -62,11 +62,11 @@ Route::get('lessons/listlesson', 'LessonController@listlesson')->name('listlesso
 Route::get('lessons/show/{id}', 'LessonController@show')->name('show');
 //
 // レッスン新規作成
-Route::get('lessons/create', 'LessonController@create')->name('create');
+Route::get('lessons/create', 'LessonController@create')->name('create');//講座 lessons/create **//{{route('confirm')}}
 // レッスン登録確認画面
-Route::post('lessons/confirm', 'LessonController@confirm')->name('confirm');
+Route::post('lessons/confirm', 'LessonController@confirm')->name('confirm'); // lessons/confirm**//{{ route('store')}}
 // レッスン登録
-Route::post('lessons/store', 'LessonController@store')->name('store');
+Route::post('lessons/store', 'LessonController@store')->name('store'); //登録後の表示 lessons/sotre **// foreach で回す
 //
 // レッスンの修正(personal.blade.phpから編集ボタンから表示されるedit.blade.php)
 Route::get('lessons/edit', 'LessonController@edit')->name('edit');
